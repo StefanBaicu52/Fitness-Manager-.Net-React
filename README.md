@@ -1,43 +1,52 @@
 # Fitness Management System
 
 ## Project Overview
-This is a full-stack web application designed to streamline the management of fitness club members and their subscriptions. The system provides a robust solution for tracking membership status, calculating expiration dates based on various subscription plans, and securing administrative operations.
+This is a professional full-stack web application designed for the comprehensive management of fitness club operations. The system automates member tracking, subscription lifecycle management, and administrative security, providing a streamlined experience for club owners and staff.
 
-## Architecture
-The project follows a decoupled architecture, separating the concerns of the data processing layer from the user interface:
+## Architecture and Design
+The application is built using a modern decoupled architecture:
 
-* **Backend:** Developed using .NET 8 Web API, following RESTful principles.
-* **Database:** SQL Server managed via Entity Framework Core with a Code-First approach.
-* **Frontend:** A Single Page Application (SPA) built with React.js and styled with Bootstrap 5.
+* **Backend:** Developed with ASP.NET Core 8 Web API, implementing a clean separation of concerns through Controllers, Data Transfer Objects (DTOs), and Repository patterns.
+* **Frontend:** A Single Page Application (SPA) built with React.js, utilizing hooks for state management and Axios for asynchronous API communication.
+* **Database:** Microsoft SQL Server, managed using Entity Framework Core with Code-First migrations for consistent schema deployment.
 
 ## Key Features
-* **Automated Membership Tracking:** The system automatically calculates expiration dates based on selected plans (1, 3, or 12 months) and updates the status (Active/Expired) in real-time.
-* **Administrative Security:** Critical operations such as adding, editing, or deleting members are protected by an authentication layer.
-* **Dynamic Dashboard:** Provides high-level statistics regarding the total number of members and their current status.
-* **Responsive Design:** The interface is fully responsive, ensuring usability across various devices and screen sizes.
+* **Member Lifecycle Management:** Complete CRUD (Create, Read, Update, Delete) operations for managing member profiles and contact information.
+* **Automated Subscription Logic:** Intelligent calculation of membership expiration dates based on tiered plans (1, 3, or 12 months), with real-time status updates (Active/Expired).
+* **JWT Security Framework:** Implementation of JSON Web Tokens for stateless authentication. This ensures that administrative actions are strictly reserved for authorized users.
+* **Adaptive User Interface:** The frontend dynamically adjusts based on authentication status, hiding or showing management tools to prevent unauthorized interaction.
+* **Data Analytics Dashboard:** Integrated statistics module providing instant visibility into total membership count and current club capacity.
 
 ## Technical Stack
-* **Server-side:** C#, ASP.NET Core Web API, Entity Framework Core.
-* **Client-side:** React, Axios for API communication, React Router for navigation.
-* **Tools:** Git, Visual Studio, VS Code, SQL Server Management Studio.
+* **Server-side:** C#, .NET 8, ASP.NET Core Web API, Entity Framework Core.
+* **Client-side:** React.js, React Router, Axios, Bootstrap 5.
+* **Security:** JWT Authentication, Password Hashing, CORS Policy Management.
+* **Tools:** Visual Studio, VS Code, Git, SQL Server Management Studio.
 
 ## Project Structure
-* **/backend:** Contains the .NET source code, including Controllers, Models, Data Context, and Migrations.
-* **/frontend:** Contains the React application source code and configuration files.
-* **/screenshots:** Documentation of the application's interface and functionality.
+* **/backend**: The .NET 8 source code, including business logic, database context, and API endpoints.
+* **/frontend**: The React application, containing components, routing logic, and global styling.
+* **/screenshots**: Visual documentation showcasing the dashboard, member management interface, and security modules.
 
-## Local Setup and Installation
+## Security and Data Integrity
+The system employs multiple layers of protection:
+* **Server-Side Authorization:** Sensitive API endpoints are protected by JWT validation, rejecting any request that does not include a valid bearer token.
+* **Client-Side Route Guards:** Private routes in React prevent unauthenticated users from accessing administrative pages.
+* **Input Validation:** Strict data validation on both layers ensures that only properly formatted information is persisted to the database.
 
-### Backend Configuration
-1. Navigate to the `/backend` directory.
-2. Update the ConnectionString in `appsettings.json` to point to your local SQL Server instance.
-3. Open the Package Manager Console and run: `Update-Database`.
-4. Start the server using: `dotnet run`.
+## Local Installation and Setup
 
-### Frontend Configuration
-1. Navigate to the `/frontend` directory.
-2. Install the necessary dependencies by running: `npm install`.
-3. Launch the application in development mode with: `npm run dev`.
+### Backend Prerequisites
+1.  Navigate to the `/backend` directory.
+2.  Locate `appsettings.json` and update the `DefaultConnection` string with your local SQL Server credentials.
+3.  Execute `dotnet ef database update` in the terminal to generate the database schema.
+4.  Run the application using `dotnet run`.
 
-## Security and Validation
-The application implements client-side route protection and server-side authorization checks to ensure that only authenticated administrators can modify the database. Data integrity is maintained through model validation on both the frontend and backend layers.
+### Frontend Prerequisites
+1.  Navigate to the `/frontend` directory.
+2.  Install all required dependencies by executing `npm install`.
+3.  Launch the development server with `npm run dev`.
+4.  Access the application via the provided local URL (typically http://localhost:5173).
+
+---
+*Developed as a full-stack portfolio project to demonstrate proficiency in modern web development practices and secure API design.*
