@@ -1,0 +1,27 @@
+# --- .NET / Visual Studio ---
+**/bin/
+**/obj/
+**/.vs/
+**/*.user
+**/*.suo
+**/App_Data/
+# Nu urcăm baza de date locală pe GitHub
+**/*.mdf
+**/*.ldf
+
+# --- React / Node.js ---
+**/node_modules/
+**/dist/
+**/build/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- OS specific ---
+.DS_Store
+Thumbs.db
+
+# --- User settings ---
+**/appsettings.Development.json
